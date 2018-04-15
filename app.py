@@ -1,3 +1,5 @@
+import sys
+sys.path.append('matplotlib')
 from plot_graph import pg1,pg2,pg3,pg4
 from flask import Flask, render_template, \
     request, redirect, url_for, session

@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="tab">
+	<ul class="tab-title">
+		<!-- title -->
+		<li>Graph1</li>
+		<li>Graph2</li>
+		<li>Graph3</li>
+		<li>Graph4</li>
+	</ul>
+	<div class="tab-title-bar"></div>
+	<ul class="tab-contents">
+		<!-- graph1 -->
+		<li class="active">
+			<form action="{{ url_for('get') }}" method="GET">
+				<div>
+					<label for="start">開始</label>
+					<input type="text" class="date1" name="date">
+					<!--input type="text" class="time1"></input-->
+					<label for="end">終了</label>
+					<input type="text" class="date2" name="date">
+					<!--input type="text" class="time2"></input-->
+					<input class="button" type="submit" id=graph1 onchange="drawGraph1()">
+				</div>
+			</form>
+			<p>{{ date }}が入力されました。</p>
+			<img id=plotimg1>
+		</li>
+		<!-- graph2 -->
+		<li>
+			<div class="container pt20">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="select-wrap select-primary">
+							<select class="selector" id=selector onchange="drawGraph2(this)">
+								<option value="sin">sin</option>
+								<option value="cos" selected>cos</option>
+								<option value="tan">tan</option>
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<img id=plotimg2>
+		</li>
+		<!-- graph3 -->
+		<li>
+			<!--div id=graph3 onchange="drawGraph3()" value="r3"></div-->
+			<img id=plotimg3>
+		</li>
+		<!-- graph4 -->
+		<li>
+			<!--div id=graph4 onchange="drawGraph4()" value="r4"></div-->
+			<img id=plotimg4>
+		</li>
+	</ul>
+</div>
+{% endblock %}
